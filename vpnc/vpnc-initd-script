@@ -1,0 +1,42 @@
+#!/bin/sh
+#
+# vpnc  Control the vpnc service.
+#
+# chkconfig: 2345 90 10
+# description: init script for vpnc
+# config:
+# pidfile: /var/run/vpnc/pid
+
+
+# Source function library.
+. /etc/init.d/functions
+
+RETVAL=0
+PIDFILE=/var/run/vpnc/pid
+
+case "$1" in
+  start)
+        echo -n "Starting VPNC connection: "
+        /usr/sbin/vpnc /etc/vpnc/default.conf
+        echo
+        ;;
+  stop)
+        echo -n "Stopping VPNC connection: "
+        if [ -f $PIDFILE ]; then
+           PID=$(cat $PIDFILE)
+           kill $PID
+           while [ -d /proc/$PID ];
+           do
+                sleep 1
+           done
+        fi
+        echo
+        ;;
+  restart|reload)
+        $0 stop
+        $0 start
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+esac
