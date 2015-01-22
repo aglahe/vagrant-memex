@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box ="aarong-vagrant/memex-client"
 
   # Since we use a Self signed cert..need to set to false
-  config.vm.box_download_insecure = "false"
+  config.vm.box_download_insecure = "true"
 
   config.vm.hostname = "memex-client"
   config.vm.synced_folder "./hadoop", "/etc/hadoop/conf"
