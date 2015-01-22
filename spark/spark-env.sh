@@ -7,7 +7,6 @@
 # ./bin/run-example or ./bin/spark-submit
 # - HADOOP_CONF_DIR, to point Spark towards Hadoop configuration files
 # - SPARK_LOCAL_IP, to set the IP address Spark binds to on this node
-#export SPARK_LOCAL_IP=10.1.3.18
 # - SPARK_PUBLIC_DNS, to set the public dns name of the driver program
 # - SPARK_CLASSPATH, default classpath entries to append
 
@@ -57,9 +56,7 @@ export SPARK_WORKER_OPTS="-Dspark.shuffle.consolidateFiles=true"
 ### === IMPORTANT ===
 ### Change the following to specify a real cluster's Master host
 ###
-#export STANDALONE_SPARK_MASTER_HOST=memex-spark-master.xdata.data-tactics-corp.com
-#export STANDALONE_SPARK_MASTER_HOST=10.1.94.57
-export STANDALONE_SPARK_MASTER_HOST=xd-spark.xdata.data-tactics-corp.com
+export STANDALONE_SPARK_MASTER_HOST=memex-spark-master.xdata.data-tactics-corp.com
 
 export SPARK_MASTER_IP=$STANDALONE_SPARK_MASTER_HOST
 
