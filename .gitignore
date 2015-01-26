@@ -1,3 +1,6 @@
+# Vi swap files
+*.swp
+
 # Compiled source #
 ###################
 *.com
