@@ -27,4 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./solr", "/etc/solr"
   config.vm.synced_folder "./impala", "/etc/impala/conf"
 
+  # Setup Spark Aliases to work around the VPN NAT
+  config.vm.provision "shell", 
+     inline: "cat /etc/spark/conf/spark-alias.sh >> /etc/profile.d/spark-alias.sh"
 end
