@@ -10,6 +10,15 @@
 # - SPARK_PUBLIC_DNS, to set the public dns name of the driver program
 # - SPARK_CLASSPATH, default classpath entries to append
 
+# Use the VPN interface
+export SPARK_LOCAL_IP=`ifconfig tun0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
+
+# Use conda python (since its version 2.7.x), installed on the memex box
+export PYSPARK_PYTHON='/srv/software/anaconda/bin/python'
+
+# Turns on ipython by default
+export PYSPARK_DRIVER_PYTHON=ipython
+
 # Options read by executors and drivers running inside the cluster
 # - SPARK_LOCAL_IP, to set the IP address Spark binds to on this node
 # - SPARK_PUBLIC_DNS, to set the public DNS name of the driver program
