@@ -9,9 +9,13 @@ VAGRANT_COMMAND = ARGV[0]
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |v|
-    v.memory = 4096
+    v.memory = 8192
     v.cpus = 2
   end
+
+  # Original starting point of the base box, and deploy script
+  #config.vm.box = "chef/centos-6.6"
+  #config.vm.provision :shell, :path => "deploy.sh"
 
   config.vm.box ="aarong-vagrant/memex-client"
   config.vm.box_download_insecure = "true"
