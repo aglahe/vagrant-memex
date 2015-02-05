@@ -31,4 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./solr", "/etc/solr"
   config.vm.synced_folder "./impala", "/etc/impala/conf"
 
+  # To use the same network as the Host OS is
+  #config.vm.network "public_network"
+
 end
