@@ -50,24 +50,23 @@ export PYSPARK_DRIVER_PYTHON=ipython
 # - SPARK_PUBLIC_DNS, to set the public dns name of the master or workers
 
 # - SPARK_WORKER_CORES, to set the number of cores to use on this machine
-export SPARK_WORKER_CORES=16
+#export SPARK_WORKER_CORES=16
 
 # - SPARK_WORKER_MEMORY, to set how much memory to use (e.g. 1000m, 2g)
-export SPARK_WORKER_MEMORY=64g
+#export SPARK_WORKER_MEMORY=64g
 
 # - SPARK_DAEMON_MEMORY Memory to allocate to the Spark master and worker daemons themselves (default: 512m).
-export SPARK_DAEMON_MEMORY=4g
+#export SPARK_DAEMON_MEMORY=4g
 
 # - SPARK_JAVA_OPTS
-export SPARK_WORKER_OPTS="-Dspark.shuffle.consolidateFiles=true"
+#export SPARK_WORKER_OPTS="-Dspark.shuffle.consolidateFiles=true"
 
 ###
 ### === IMPORTANT ===
 ### Change the following to specify a real cluster's Master host
 ###
-export STANDALONE_SPARK_MASTER_HOST=memex-spark-master.xdata.data-tactics-corp.com
-
-export SPARK_MASTER_IP=$STANDALONE_SPARK_MASTER_HOST
+#export STANDALONE_SPARK_MASTER_HOST=memex-spark-master.xdata.data-tactics-corp.com
+#export SPARK_MASTER_IP=$STANDALONE_SPARK_MASTER_HOST
 
 ### Let's run everything with JVM runtime, instead of Scala
 export SPARK_LAUNCH_WITH_SCALA=0
