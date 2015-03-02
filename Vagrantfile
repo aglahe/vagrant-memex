@@ -14,10 +14,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Original starting point of the base box, and deploy script
-  config.vm.box = "chef/centos-6.6"
-  config.vm.provision :shell, :path => "deploy.sh"
+  #config.vm.box = "chef/centos-6.6"
+  #config.vm.provision :shell, :path => "deploy.sh"
 
-  #config.vm.box ="aarong-vagrant/memex-client"
+  config.vm.box ="aarong-vagrant/memex-client"
   config.vm.box_download_insecure = "true"
 
   config.vm.hostname = "memex-client"
