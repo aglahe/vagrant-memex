@@ -74,3 +74,7 @@ sudo ./Miniconda-3.7.0-Linux-x86_64.sh -b -p /srv/software/anaconda
 sudo echo "export PATH=/srv/software/anaconda/bin:\$PATH" >> /etc/profile.d/anaconda.sh
 sudo /srv/software/anaconda/bin/conda update --yes conda
 sudo /srv/software/anaconda/bin/conda install --yes ipython
+
+# create hadoop config files
+HDFS_COMPUTE_CONF=/etc/hadoop/conf.memex
+alternatives --install /etc/hadoop/conf hadoop-conf $HDFS_COMPUTE_CONF 60

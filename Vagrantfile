@@ -14,14 +14,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Original starting point of the base box, and deploy script
-  #config.vm.box = "chef/centos-6.6"
-  #config.vm.provision :shell, :path => "deploy.sh"
+  config.vm.box = "chef/centos-6.6"
+  config.vm.provision :shell, :path => "deploy.sh"
 
-  config.vm.box ="aarong-vagrant/memex-client"
+  #config.vm.box ="aarong-vagrant/memex-client"
   config.vm.box_download_insecure = "true"
 
   config.vm.hostname = "memex-client"
-  config.vm.synced_folder "./hadoop", "/etc/hadoop/conf"
+  config.vm.synced_folder "./hadoop", "/etc/hadoop/conf.memex"
   config.vm.synced_folder "./storm", "/etc/storm/conf"
   config.vm.synced_folder "./hive", "/etc/hive/conf"
   config.vm.synced_folder "./spark", "/etc/spark/conf"
