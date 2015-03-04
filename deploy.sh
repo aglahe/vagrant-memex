@@ -78,3 +78,7 @@ sudo /srv/software/anaconda/bin/conda install --yes ipython
 # create hadoop config files
 HDFS_COMPUTE_CONF=/etc/hadoop/conf.memex
 alternatives --install /etc/hadoop/conf hadoop-conf $HDFS_COMPUTE_CONF 60
+
+# Add the Hadoop Lzo
+sudo wget -P /etc/yum.repos.d http://archive-primary.cloudera.com/gplextras5/redhat/6/x86_64/gplextras/cloudera-gplextras5.repo
+sudo yum -y install hadoop-lzo
