@@ -12,6 +12,7 @@ sudo yum -y install hadoop-client
 sudo yum -y install bind-utils
 sudo yum -y install vpnc
 sudo yum -y groupinstall 'Development Tools'
+sudo yum -y install ncsd
 
 # Do an update
 sudo yum -y update
