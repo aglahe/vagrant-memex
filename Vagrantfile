@@ -31,6 +31,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./solr", "/etc/solr"
   config.vm.synced_folder "./impala", "/etc/impala/conf"
 
+  #  iPython Notebook forwarded port
+  config.vm.network "forwarded_port", guest: 8888, host: 18888
+
   # To use the same network as the Host OS is
   #config.vm.network "public_network"
 
