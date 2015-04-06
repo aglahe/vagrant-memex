@@ -14,11 +14,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Original starting point of the base box, and deploy script
-  #config.vm.box = "chef/centos-6.6"
-  #config.vm.provision :shell, :path => "deploy.sh"
+  config.vm.box = "chef/centos-6.6"
+  config.vm.provision :shell, :path => "basebox-create.sh"
 
-  config.vm.box ="aarong-vagrant/memex-client"
-  config.vm.box_download_insecure = "true"
+  #config.vm.box ="aarong-vagrant/cdh-hadoop-client"
+  #config.vm.box_download_insecure = "true"
+  #config.vm.provision :shell, :path => "deploy.sh"
 
   config.vm.hostname = "memex-client"
   config.vm.synced_folder "./hadoop", "/etc/hadoop/conf.memex"
@@ -32,7 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder "./impala", "/etc/impala/conf"
 
   #  iPython Notebook forwarded port
-  config.vm.network "forwarded_port", guest: 8888, host: 18888
+  #config.vm.network "forwarded_port", guest: 8888, host: 18888
 
   # To use the same network as the Host OS is
   #config.vm.network "public_network"
