@@ -93,7 +93,7 @@
 
   <property>
     <name>dfs.datanode.data.dir</name>
-    <value>file:///data0/hdfs/dn,file:///data1/hdfs/dn,file:///data2/hdfs/dn,file:///data3/hdfs/dn,file:///data4/hdfs/dn,file:///data5/hdfs/dn,file:///data6/hdfs/dn</value>
+    <value>file:///data0/hdfs/dn,file:///data1/hdfs/dn,file:///data2/hdfs/dn,file:///data3/hdfs/dn,file:///data4/hdfs/dn,file:///data5/hdfs/dn</value>
     <final>true</final>
   </property>
 
