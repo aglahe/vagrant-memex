@@ -37,10 +37,12 @@ export PYSPARK_DRIVER_PYTHON=ipython
 # - SPARK_YARN_DIST_FILES, Comma separated list of files to be distributed with the job.
 # - SPARK_YARN_DIST_ARCHIVES, Comma separated list of archives to be distributed with the job.
 
-# Options for the daemons used in the standalone deploy mode:
+# Options for the daemons used in the standalone deploy mode
 # - SPARK_MASTER_IP, to bind the master to a different IP address or hostname
 # - SPARK_MASTER_PORT / SPARK_MASTER_WEBUI_PORT, to use non-default ports for the master
 # - SPARK_MASTER_OPTS, to set config properties only for the master (e.g. "-Dx=y")
+# - SPARK_WORKER_CORES, to set the number of cores to use on this machine
+# - SPARK_WORKER_MEMORY, to set how much total memory workers have to give executors (e.g. 1000m, 2g)
 # - SPARK_WORKER_PORT / SPARK_WORKER_WEBUI_PORT, to use non-default ports for the worker
 # - SPARK_WORKER_INSTANCES, to set the number of worker processes per node
 # - SPARK_WORKER_DIR, to set the working directory of worker processes
@@ -49,45 +51,57 @@ export PYSPARK_DRIVER_PYTHON=ipython
 # - SPARK_DAEMON_JAVA_OPTS, to set config properties for all daemons (e.g. "-Dx=y")
 # - SPARK_PUBLIC_DNS, to set the public dns name of the master or workers
 
-# - SPARK_WORKER_CORES, to set the number of cores to use on this machine
-#export SPARK_WORKER_CORES=16
-
-# - SPARK_WORKER_MEMORY, to set how much memory to use (e.g. 1000m, 2g)
-#export SPARK_WORKER_MEMORY=64g
-
-# - SPARK_DAEMON_MEMORY Memory to allocate to the Spark master and worker daemons themselves (default: 512m).
-#export SPARK_DAEMON_MEMORY=4g
-
-# - SPARK_JAVA_OPTS
-#export SPARK_WORKER_OPTS="-Dspark.shuffle.consolidateFiles=true"
+# Generic options for the daemons used in the standalone deploy mode
+# - SPARK_CONF_DIR      Alternate conf dir. (Default: ${SPARK_HOME}/conf)
+# - SPARK_LOG_DIR       Where log files are stored.  (Default: ${SPARK_HOME}/logs)
+# - SPARK_PID_DIR       Where the pid file is stored. (Default: /tmp)
+# - SPARK_IDENT_STRING  A string representing this instance of spark. (Default: $USER)
+# - SPARK_NICENESS      The scheduling priority for daemons. (Default: 0)
 
 ###
 ### === IMPORTANT ===
 ### Change the following to specify a real cluster's Master host
 ###
-#export STANDALONE_SPARK_MASTER_HOST=memex-spark-master.xdata.data-tactics-corp.com
-#export SPARK_MASTER_IP=$STANDALONE_SPARK_MASTER_HOST
+export STANDALONE_SPARK_MASTER_HOST=`hostname`
+
+export SPARK_MASTER_IP=$STANDALONE_SPARK_MASTER_HOST
 
 ### Let's run everything with JVM runtime, instead of Scala
 export SPARK_LAUNCH_WITH_SCALA=0
 export SPARK_LIBRARY_PATH=${SPARK_HOME}/lib
-export SCALA_LIBRARY_PATH=${SPARK_HOME}/lib
 export SPARK_MASTER_WEBUI_PORT=18080
 export SPARK_MASTER_PORT=7077
 export SPARK_WORKER_PORT=7078
 export SPARK_WORKER_WEBUI_PORT=18081
 export SPARK_WORKER_DIR=/var/run/spark/work
 export SPARK_LOG_DIR=/var/log/spark
-export SPARK_HISTORY_SERVER_LOG_DIR='/user/spark/applicationHistory'
 export SPARK_PID_DIR='/var/run/spark/'
 
 if [ -n "$HADOOP_HOME" ]; then
-  export SPARK_LIBRARY_PATH=$SPARK_LIBRARY_PATH:${HADOOP_HOME}/lib/native
+  export LD_LIBRARY_PATH=:/usr/lib/hadoop/lib/native
 fi
 
-export HADOOP_CONF_DIR=/etc/hadoop/conf
+export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-/etc/hadoop/conf}
 
-### Comment above 2 lines and uncomment the following if
-### you want to run with scala version, that is included with the package
-#export SCALA_HOME=${SCALA_HOME:-/usr/lib/spark/scala}
-#export PATH=$PATH:$SCALA_HOME/bin
+if [[ -d $SPARK_HOME/python ]]
+then
+    for i in
+    do
+        SPARK_DIST_CLASSPATH=${SPARK_DIST_CLASSPATH}:$i
+    done
+fi
+
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:$SPARK_LIBRARY_PATH/spark-assembly.jar"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hadoop/lib/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hadoop/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hadoop-hdfs/lib/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hadoop-hdfs/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hadoop-mapreduce/lib/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hadoop-mapreduce/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hadoop-yarn/lib/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hadoop-yarn/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/hive/lib/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/flume-ng/lib/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/paquet/lib/*"
+SPARK_DIST_CLASSPATH="$SPARK_DIST_CLASSPATH:/usr/lib/avro/lib/*"
