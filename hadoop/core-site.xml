@@ -27,6 +27,17 @@
              <value>memex-zk01.xdata.data-tactics-corp.com:2181,memex-zk02.xdata.data-tactics-corp.com:2181,memex-zk03.xdata.data-tactics-corp.com:2181,memex-zk04.xdata.data-tactics-corp.com:2181,memex-zk05.xdata.data-tactics-corp.com:2181</value>
         </property>
 
+        <!-- Trash minutes to allow recover of deleted files-->
+        <property>
+           <name>fs.trash.interval</name>
+           <value>30</value>
+       </property>
+       <property>
+           <name>fs.trash.checkpoint.interval</name>
+           <value>15</value>
+       </property>
+        <!-- Trash minutes to allow recover of deleted files-->
+
         <!-- History Server proxy -->
         <property>
            <name>hadoop.proxyuser.mapred.hosts</name>
