@@ -50,7 +50,7 @@
   </property>
   <property>
     <name>dfs.journalnode.edits.dir</name>
-    <value>/data0/hdfs/journal</value>
+    <value>/data/hdfs/journal</value>
   </property>
 
   <!-- Zookeeper failover -->
