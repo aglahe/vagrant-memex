@@ -26,10 +26,10 @@ MAX_MAP_COUNT=262144
 LOG_DIR=/var/log/elasticsearch
 
 # Elasticsearch data directory
-DATA_DIR=/data6/elasticsearch/data
+DATA_DIR=/data/7/elasticsearch/data
 
 # Elasticsearch work directory
-WORK_DIR=/data6/elasticsearch/work
+WORK_DIR=/data/7/elasticsearch/work
 
 # Elasticsearch conf directory
 CONF_DIR=/etc/elasticsearch
@@ -44,4 +44,3 @@ ES_USER=elasticsearch
 
 # Configure restart on package upgrade (true, every other setting will lead to not restarting)
 #RESTART_ON_UPGRADE=true
-
