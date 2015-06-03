@@ -22,9 +22,10 @@
              <name>fs.defaultFS</name>
              <value>hdfs://memex</value>
         </property>
+
         <property>
              <name>ha.zookeeper.quorum</name>
-             <value>memex-zk01.xdata.data-tactics-corp.com:2181,memex-zk02.xdata.data-tactics-corp.com:2181,memex-zk03.xdata.data-tactics-corp.com:2181,memex-zk04.xdata.data-tactics-corp.com:2181,memex-zk05.xdata.data-tactics-corp.com:2181</value>
+             <value>zk01.xdata.data-tactics-corp.com:2181,zk02.xdata.data-tactics-corp.com:2181,zk03.xdata.data-tactics-corp.com:2181,zk04.xdata.data-tactics-corp.com:2181,zk05.xdata.data-tactics-corp.com:2181</value>
         </property>
 
         <!-- Trash minutes to allow recover of deleted files-->
@@ -49,13 +50,13 @@
         </property>
         <!-- History Server proxy -->
 
-        <property>  
-           <name>hadoop.proxyuser.httpfs.hosts</name>  
-	   <value>*</value>  
-	</property>  
-	<property>  
-	   <name>hadoop.proxyuser.httpfs.groups</name>  
-	   <value>*</value>  
+        <property>
+           <name>hadoop.proxyuser.httpfs.hosts</name>
+	   <value>*</value>
+	</property>
+	<property>
+	   <name>hadoop.proxyuser.httpfs.groups</name>
+	   <value>*</value>
 	</property>
 
         <!-- Hue WebHDFS proxy user setting -->
