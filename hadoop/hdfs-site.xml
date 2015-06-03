@@ -75,7 +75,7 @@
 
   <property>
      <name>dfs.namenode.name.dir</name>
-     <value>file:///data0/hdfs/nn</value>
+     <value>file:///data/hdfs/nn</value>
      <final>true</final>
   </property>
 
