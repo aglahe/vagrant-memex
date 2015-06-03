@@ -46,7 +46,7 @@
   </property>
   <property>
     <name>dfs.namenode.shared.edits.dir</name>
-    <value>qjournal://memex-nn1.xdata.data-tactics-corp.com:8485;memex-nn2.xdata.data-tactics-corp.com:8485;r102u25.xdata.data-tactics-corp.com:8485;r102u26.xdata.data-tactics-corp.com:8485;r102u27.xdata.data-tactics-corp.com:8485/memex</value>
+    <value>qjournal://jn01:8485;jn02:8485;jn03:8485;jn04:8485;jn05:8485/memex</value>
   </property>
   <property>
     <name>dfs.journalnode.edits.dir</name>
@@ -114,17 +114,18 @@
     <final>true</final>
   </property>
 
+<!--
   <property>
     <name>dfs.hosts</name>
     <value>/etc/hadoop/conf/hosts.include</value>
     <final>true</final>
   </property>
-
   <property>
     <name>dfs.hosts.exclude</name>
     <value>/etc/hadoop/conf/hosts.exclude</value>
     <final>true</final>
   </property>
+-->
 
   <property>
     <name>dfs.webhdfs.enabled</name>
@@ -160,13 +161,6 @@
     <value>true</value>
   </property>
   <!-- Block location tracking -->
-
-  <!-- For Accumulo durable writes -->
-  <property>
-     <name>dfs.datanode.synconclose</name>
-     <value>true</value>
-  </property>
-  <!-- For Accumulo durable writes -->
 
   <!-- HBase Additions -->
   <property>
