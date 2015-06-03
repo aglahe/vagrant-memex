@@ -91,12 +91,12 @@
 
   <property>
     <name>yarn.nodemanager.local-dirs</name>
-    <value>/data0/yarn/local,/data1/yarn/local,/data2/yarn/local,/data3/yarn/local,/data4/yarn/local,/data5/yarn/local</value>
+    <value>/data/1/yarn/local,/data/2/yarn/local,/data/3/yarn/local,/data/4/yarn/local,/data/5/yarn/local,/data/6/yarn/local</value>
   </property>
 
   <property>
     <name>yarn.nodemanager.log-dirs</name>
-    <value>/data0/yarn/logs,/data1/yarn/logs,/data2/yarn/logs,/data3/yarn/logs,/data4/yarn/logs,/data5/yarn/logs</value>
+    <value>/data/1/yarn/logs,/data/2/yarn/logs,/data/3/yarn/logs,/data/4/yarn/logs,/data/5/yarn/logs,/data/6/yarn/logs,</value>
   </property>
 
   <property>
