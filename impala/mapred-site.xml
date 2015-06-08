@@ -65,7 +65,7 @@
 
   <property>
     <name>mapreduce.task.io.sort.mb</name>
-    <value>384</value>
+    <value>2047</value>
   </property>
 
   <property>

@@ -32,7 +32,6 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>memex-zk01.xdata.data-tactics-corp.com,memex-zk02.xdata.data-tactics-corp.com,memex-zk03.xdata.data-tactics-corp.com,memex-zk04.xdata.data-tactics-corp.com,memex-zk05.xdata.data-tactics-corp.com</value>
+    <value>zk01.xdata.data-tactics-corp.com,zk02.xdata.data-tactics-corp.com,zk03.xdata.data-tactics-corp.com,zk04.xdata.data-tactics-corp.com,zk05.xdata.data-tactics-corp.com</value>
   </property>
 </configuration>
-
