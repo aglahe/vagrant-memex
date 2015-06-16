@@ -52,6 +52,15 @@ sudo yum -y install solr-mapreduce
 sudo yum -y install solr-crunch
 sudo ln -s /etc/default/solr /etc/solr/default
 
+# Kafka
+sudo wget https://github.com/apache/kafka/archive/0.8.2.1.tar.gz
+sudo /bin/tar xzvf 0.8.2.1.tar.gz -C /srv/software
+sudo ln -s /srv/software/kafka-0.8.2.1 /srv/software/kafka
+sudo mkdir -p /var/log/kafka
+sudo rm -rf /srv/software/kafka/config
+sudo ln -s /etc/kafka/conf /srv/software/kafka/config
+sudo echo "export PATH=\$PATH:/srv/software/kafka/bin" >> /etc/profile.d/kafka.sh
+
 # Storm
 sudo wget https://github.com/apache/storm/archive/v0.9.3.tar.gz
 sudo /bin/tar xzvf v0.9.3.tar.gz -C /srv/software
