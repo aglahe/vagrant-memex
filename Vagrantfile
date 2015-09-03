@@ -6,49 +6,11 @@ VAGRANTFILE_API_VERSION = "2"
 
 VAGRANT_COMMAND = ARGV[0]
 
-  #Default numbers given to VM
-memAllocated=4096
-coresAllocated=2
-
-#Asks for desired Memory Allocation
-puts "If running 'vagrant up', please enter how many Gigabytes of Memory you wish to allocate yo your Vagrant Machine (1/2/4/8)"
-puts "If running other vagrant command (e.g. 'vagrant halt'), please provide moot input: "
-puts `read input; exit $input`
-
-if memAllocated == 1
-         print "1 Gig has been allocated to your Vagrant Machine\n"
-         memAllocated=1024
-elsif memAllocated == 2
-        print "2 Gigs have been allocated to your Vagrant Machine\n"
-elsif memAllocated == 4
-        print "4 Gigs have been allocated to your Vagrant Machine\n"
-elsif memAllocated == 8
-        print "8 Gigs have been allocated to your Vagrant Machine\n"
-        memAllocated=8192
-else
-        print "Error, invalid entry for VM Memory. Defaulting to 4096 MB!"
-        memAllocated=4096
-end
-
-puts "If running 'vagrant up', please enter how many Cores you wish to allocate to your Vagrant Machine ('1'/'2'/'4') "
-puts "If running other vagrant commands (e.g. 'vagrant halt'), provide moot input:\n "
-puts `read corein; exit $corein`
-coresAllocated = $?.exitstatus
-
-if coresAllocated == 1
-        print "1 Core has been allocated to your Vagrant Machine\n"
-elsif coresAllocated == 2
-        print "2 Cores have been allocated to your Vagrant Machine\n"
-elsif coresAllocated == 4
-        print "4 Cores have been allocated to your Vagrant Machine\n"
-else
-        print "Error, invalid entry for VM Cores. Defaulting to 2 Cores!"
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |v|
-    v.memory = memAllocated
-    v.cpus = coresAllocated
+    v.memory = 4096
+    v.cpus = 2
   end
 
   # Original starting point of the base box, and deploy script
