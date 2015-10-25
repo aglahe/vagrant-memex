@@ -108,10 +108,12 @@
 </property>
 
 <!-- Hive-Hbase integration -->
+<!-- This breaks queries that require map, commenting out after discussion with Aaron 2015-10-25 - ejw
 <property>
   <name>hive.aux.jars.path</name>
   <value>file:///usr/lib/hive/lib/zookeeper.jar:file:///usr/lib/hive/lib/hive-hbase-handler.jar:file:///usr/lib/hive/lib/guava-11.0.2.jar:file:///usr/lib/hive/lib/hbase-client.jar:file:///usr/lib/hive/lib/hbase-common.jar:file:///usr/lib/hive/lib/hbase-hadoop-compat.jar:file:///usr/lib/hive/lib/hbase-hadoop2-compat.jar:file:///usr/lib/hive/lib/hbase-protocol.jar:file:///usr/lib/hive/lib/hbase-server.jar:file:///usr/lib/hive/lib/htrace-core.jar</value>
 </property>
+-->
 <property>
   <name>hbase.zookeeper.quorum</name>
   <description>Zookeeper quorum used by HBase</description>
