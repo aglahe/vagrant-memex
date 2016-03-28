@@ -25,9 +25,9 @@ sudo rm -rf /opt/kafka/config
 sudo ln -s /etc/kafka/conf /opt/kafka/config
 sudo echo "export PATH=\$PATH:/opt/kafka/bin" >> /etc/profile.d/kafka.sh
 
-# Spark 1.6
-sudo wget -q -O - http://d3kbcqa49mib13.cloudfront.net/spark-1.6.0-bin-hadoop2.6.tgz | tar -xzf - -C /opt
-sudo ln -s /opt/spark-1.6.0-bin-hadoop2.6 /opt/spark
+# Spark 1.6.1
+sudo wget -q -O - http://www.apache.org/dyn/closer.lua/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz | tar -xzf - -C /opt
+sudo ln -s /opt/spark-1.6.1-bin-hadoop2.6 /opt/spark
 sudo rm -rf /opt/spark/conf
 
 # Get Scala 2.11.5
