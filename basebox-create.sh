@@ -11,7 +11,7 @@ sudo yum -y update
 sudo yum -y groupinstall 'Development Tools'
 sudo yum -y install bind-utils vpnc nscd wget java-1.8.0-openjdk-devel
 
-# CDH Tools 
+# CDH Tools
 sudo wget -P /etc/yum.repos.d http://archive-primary.cloudera.com/gplextras5/redhat/6/x86_64/gplextras/cloudera-gplextras5.repo
 sudo yum -y install hadoop-client hadoop-lzo spark-core spark-python hbase hive hive-jdbc hive-hbase hive-catalog install impala impala-shella pig zookeeper sqoop
 
@@ -30,7 +30,7 @@ sudo wget -q -O - http://www.apache.org/dyn/closer.lua/spark/spark-1.6.1/spark-1
 sudo ln -s /opt/spark-1.6.1-bin-hadoop2.6 /opt/spark
 sudo rm -rf /opt/spark/conf
 
-# Get Scala 2.11.5
+# Get Scala 2.11.7
 sudo wget http://www.scala-lang.org/files/archive/scala-2.11.7.tgz
 sudo /bin/tar xzvf scala-2.11.7.tgz -C /usr/lib
 sudo ln -s /usr/lib/scala-2.11.7 /usr/lib/scala
