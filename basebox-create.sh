@@ -11,7 +11,7 @@ sudo yum -y update
 sudo yum -y groupinstall 'Development Tools'
 sudo yum -y install bind-utils vpnc nscd wget java-1.8.0-openjdk-devel
 
-# CDH Tools 
+# CDH Tools
 sudo wget -P /etc/yum.repos.d http://archive-primary.cloudera.com/gplextras5/redhat/6/x86_64/gplextras/cloudera-gplextras5.repo
 sudo yum -y install hadoop-client hadoop-lzo spark-core spark-python hbase hive hive-jdbc hive-hbase hive-catalog install impala impala-shella pig zookeeper sqoop
 
@@ -25,12 +25,12 @@ sudo rm -rf /opt/kafka/config
 sudo ln -s /etc/kafka/conf /opt/kafka/config
 sudo echo "export PATH=\$PATH:/opt/kafka/bin" >> /etc/profile.d/kafka.sh
 
-# Spark 1.6
-sudo wget -q -O - http://d3kbcqa49mib13.cloudfront.net/spark-1.6.0-bin-hadoop2.6.tgz | tar -xzf - -C /opt
-sudo ln -s /opt/spark-1.6.0-bin-hadoop2.6 /opt/spark
+# Spark 1.6.1
+sudo wget -q -O - http://apache.mirrors.pair.com/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz | tar -xzf - -C /opt
+sudo ln -s /opt/spark-1.6.1-bin-hadoop2.6 /opt/spark
 sudo rm -rf /opt/spark/conf
 
-# Get Scala 2.11.5
+# Get Scala 2.11.7
 sudo wget http://www.scala-lang.org/files/archive/scala-2.11.7.tgz
 sudo /bin/tar xzvf scala-2.11.7.tgz -C /usr/lib
 sudo ln -s /usr/lib/scala-2.11.7 /usr/lib/scala
