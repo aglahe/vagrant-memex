@@ -11,7 +11,7 @@
 # - SPARK_CLASSPATH, default classpath entries to append
 
 # Use the VPN interface
-export SPARK_LOCAL_IP=`ifconfig tun0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
+export SPARK_LOCAL_IP=`sudo ifconfig tun0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}'`
 
 # Use conda python (since its version 2.7.x), installed on th xdata box
 export PYSPARK_PYTHON='/srv/software/anaconda/bin/python'
