@@ -18,6 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.box = "bento/centos-6.7"
   #config.vm.provision :shell, :path => "basebox-create.sh"
 
+  config.vm.box = "dsra-client"
   config.vm.box_url ="https://memexproxy.com/vagrant/dsra-client.box"
   config.vm.provision :shell, :path => "deploy.sh"
 
